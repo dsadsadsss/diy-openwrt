@@ -1,1 +1,1 @@
-# freediy-openwrt
+# 自用diy-openwrt
