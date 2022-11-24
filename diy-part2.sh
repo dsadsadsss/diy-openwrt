@@ -22,6 +22,9 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 # 拉取sirpdboy主题
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 #
+#添加vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 #添加socat
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-socat package/luci-app-socat
 #添加OpenClash
