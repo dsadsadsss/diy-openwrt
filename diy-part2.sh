@@ -29,8 +29,6 @@ git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-v
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 #添加管控过滤
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
-#添加socat
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-socat package/luci-app-socat
 #添加smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 #添加Clash
