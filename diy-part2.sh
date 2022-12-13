@@ -27,6 +27,8 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxmin
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
 #添加adguardhome
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
+#添加系统高级设置
+git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #添加管控过滤
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
 #添加smartdns
