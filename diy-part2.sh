@@ -36,7 +36,7 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/
 #添加Clash
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-clash package/luci-app-clash
 #添加poweroff
-svn co https://github.com/kenzok8/small-package/trunk//luci-app-poweroff package/luci-app-poweroff
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-poweroff package/luci-app-poweroff
 #添加OpenClash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 #添加istore
