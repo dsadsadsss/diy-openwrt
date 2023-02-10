@@ -34,7 +34,7 @@ svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-webur
 #添加smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 #添加Clash
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-clash package/luci-app-clash
+#svn co https://github.com/kenzok8/small-package/trunk/luci-app-clash package/luci-app-clash
 #添加bypass
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
 #添加passwall2
