@@ -30,7 +30,7 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome packa
 #添加系统高级设置
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #添加管控过滤
-svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
+#svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
 #添加smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 #添加Clash
