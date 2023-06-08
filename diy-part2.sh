@@ -31,6 +31,8 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome packa
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 #添加smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
+#添加gost
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-gost package/luci-app-gost
 #添加bypass
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
 #添加passwall2
