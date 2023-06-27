@@ -22,6 +22,8 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 # 拉取sirpdboy主题
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 #
+#添加应用管理
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 #添加vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
