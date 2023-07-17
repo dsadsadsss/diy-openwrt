@@ -31,8 +31,8 @@ git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-v
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 #添加系统高级设置
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
-#添加alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
+#添加ddns-go
+git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 #添加smartdns
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 #添加bypass
