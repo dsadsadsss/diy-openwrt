@@ -19,6 +19,10 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 rm -rf feeds/luci/themes/luci-theme-argon
 # 删除英文版netdata
 rm -rf feeds/luci/applications/luci-app-netdata
+# 删除旧版golang
+rm -rf feeds/packages/lang/golang
+# 拉取最新版golang
+git clone -b 20.x https://github.com/sbwml/packages_lang_golang.git  feeds/packages/lang/golang
 # 拉取argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 # 拉取sirpdboy主题
