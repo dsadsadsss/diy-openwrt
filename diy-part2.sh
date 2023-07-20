@@ -23,6 +23,8 @@ rm -rf feeds/luci/applications/luci-app-netdata
 rm -rf feeds/packages/lang/golang
 # 拉取最新版golang
 git clone -b 20.x https://github.com/sbwml/packages_lang_golang.git  feeds/packages/lang/golang
+# 拉取alist
+git clone https://github.com/sbwml/luci-app-alist package/alist
 # 拉取argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 # 拉取sirpdboy主题
