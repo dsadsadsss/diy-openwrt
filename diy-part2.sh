@@ -16,7 +16,7 @@ rm -rf feeds/packages/lang/golang
 # 拉取最新版golang
 git clone -b 20.x https://github.com/sbwml/packages_lang_golang.git  feeds/packages/lang/golang
 # 拉取alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
+#git clone https://github.com/sbwml/luci-app-alist package/alist
 # 拉取定时设置
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 # 拉取argon主题
@@ -34,6 +34,8 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 # 添加vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
+# eqosplus定时限速
+svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
 # 添加adguardhome
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 # 添加smartdns
