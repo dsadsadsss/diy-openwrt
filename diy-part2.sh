@@ -38,6 +38,7 @@ git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-v
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
 # 管控过滤
 svn co https://github.com/281677160/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
+# 访问限制
 svn co https://github.com/281677160/openwrt-package/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
 # 添加adguardhome
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
