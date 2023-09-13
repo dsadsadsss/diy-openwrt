@@ -46,6 +46,8 @@ svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome packa
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 # 添加bypass
 svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
+# 添加passwall
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 # 添加passwall2
 svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 # 添加poweroff
