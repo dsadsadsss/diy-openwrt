@@ -11,8 +11,6 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 rm -rf feeds/luci/themes/luci-theme-argon
 # 删除英文版netdata
 rm -rf feeds/luci/applications/luci-app-netdata
-# 拉取alist
-#git clone https://github.com/sbwml/luci-app-alist package/alist
 # 拉取定时设置
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 # 拉取argon主题
