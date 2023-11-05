@@ -27,7 +27,7 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 #git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 # 添加vssr
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-vssr.git package/lean/luci-app-vssr
+git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vssr
 # eqosplus定时限速
 svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
 # 管控过滤
