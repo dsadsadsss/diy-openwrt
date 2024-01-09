@@ -29,24 +29,24 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
 git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vssr
 # eqosplus定时限速
-svn co https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
+svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
 # 管控过滤
-svn co https://github.com/281677160/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
+svn export https://github.com/281677160/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
 # 访问限制
-svn co https://github.com/281677160/openwrt-package/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
+svn export https://github.com/281677160/openwrt-package/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
 # 添加adguardhome
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 # 添加smartdns
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
 # 添加bypass
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
 # 添加poweroff
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-poweroff package/luci-app-poweroff
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff package/luci-app-poweroff
 # 添加OpenClash
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 # 添加istore
-svn co https://github.com/linkease/istore/trunk/luci/taskd package/taskd
-svn co https://github.com/linkease/istore/trunk/luci/luci-lib-xterm package/luci-lib-xterm
-svn co https://github.com/linkease/istore/trunk/luci/luci-lib-taskd package/luci-lib-taskd
-svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
+svn export https://github.com/linkease/istore/trunk/luci/taskd package/taskd
+svn export https://github.com/linkease/istore/trunk/luci/luci-lib-xterm package/luci-lib-xterm
+svn export https://github.com/linkease/istore/trunk/luci/luci-lib-taskd package/luci-lib-taskd
+svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+svn export https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
