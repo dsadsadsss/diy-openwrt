@@ -18,7 +18,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 # 拉取sirpdboy主题
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 # 拉取中文版netdata
-git clone https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 # 添加系统高级设置
 git clone https://github.com/sirpdboy/luci-app-advanced.git package/luci-app-advanced
 # 添加ddns-go
@@ -29,7 +29,7 @@ git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxminddb
 git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vssr
 # eqosplus定时限速
-svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-eqosplus package/luci-app-eqosplus
+git clone https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
 # 管控过滤
 svn export https://github.com/281677160/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
 # 访问限制
