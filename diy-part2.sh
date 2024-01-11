@@ -45,7 +45,7 @@ pushd package/cache
 git sparse-checkout set luci-app-adguardhome \
 luci-app-smartdns \
 luci-app-bypass \
-luci-app-poweroff \
+luci-app-poweroff
 mv -f */ ../
 popd
 popd && rm -rf package/cache
