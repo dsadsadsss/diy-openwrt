@@ -69,7 +69,7 @@ popd && rm -rf package/cache
 
 git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore-ui.git; package/cache
 pushd package/cache
-git sparse-checkout set app-store-ui \
+git sparse-checkout set app-store-ui
 mv -f */ ../../../../
 popd
 popd && rm -rf package/cache
