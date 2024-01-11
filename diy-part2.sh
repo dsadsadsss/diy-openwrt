@@ -35,7 +35,7 @@ git clone --depth 1 --filter=blob:none -b Lede https://github.com/281677160/open
 pushd package/cache
 git sparse-checkout set luci-app-control-weburl \
 luci-app-control-webrestriction \
-mv -f */ ../../../
+mv -f */ ../
 popd
 popd && rm -rf package/cache
 # 添加adguardhome，smartdns，bypass，poweroff
