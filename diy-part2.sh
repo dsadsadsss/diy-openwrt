@@ -31,7 +31,7 @@ git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vs
 # eqosplus定时限速
 git clone https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
 # 管控过滤及访问限制
-git clone --depth 1 --filter=blob:none --sparse https://github.com/281677160/openwrt-package.git;Lede package/cache
+git clone --depth 1 --filter=blob:none -b Lede https://github.com/281677160/openwrt-package.git package/cache
 pushd package/cache
 git sparse-checkout set luci-app-control-weburl \
 luci-app-control-webrestriction \
@@ -39,7 +39,7 @@ mv -f */ ../../../
 popd
 popd && rm -rf package/cache
 # 添加adguardhome，smartdns，bypass，poweroff
-git clone --depth 1 --filter=blob:none --sparse https://github.com/kenzok8/small-package.git package/cache
+git clone --depth 1 --filter=blob:none https://github.com/kenzok8/small-package.git package/cache
 pushd package/cache
 git sparse-checkout set luci-app-adguardhome \
 luci-app-smartdns \
@@ -49,14 +49,14 @@ mv -f */ ../../../../
 popd
 popd && rm -rf package/cache
 # 添加OpenClash
-git clone --depth 1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git;master package/cache
+git clone --depth 1 --filter=blob:none -b master https://github.com/vernesong/OpenClash.git package/cache
 pushd package/cache
 git sparse-checkout set luci-app-openclash \
 mv -f */ ../../../
 popd
 popd && rm -rf package/cache
 # 添加istore
-git clone --depth 1 --filter=blob:none --sparse https://github.com/linkease/istore.git;main package/cache
+git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore.git package/cache
 pushd package/cache
 git sparse-checkout set luci/taskd \
 luci/luci-lib-xterm \
@@ -67,7 +67,7 @@ mv -f */ ../../../../
 popd
 popd && rm -rf package/cache
 
-git clone --depth 1 --filter=blob:none --sparse https://github.com/linkease/istore-ui.git;main package/cache
+git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore-ui.git; package/cache
 pushd package/cache
 git sparse-checkout set app-store-ui \
 mv -f */ ../../../../
