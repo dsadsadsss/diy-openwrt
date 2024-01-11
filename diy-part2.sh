@@ -49,10 +49,27 @@ mv -f */ ../../../../
 popd
 popd && rm -rf package/cache
 # 添加OpenClash
-svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone --depth 1 --filter=blob:none --sparse https://github.com/vernesong/OpenClash.git;master package/cache
+pushd package/cache
+git sparse-checkout set luci-app-openclash \
+mv -f */ ../../../
+popd
+popd && rm -rf package/cache
 # 添加istore
-svn export https://github.com/linkease/istore/trunk/luci/taskd package/taskd
-svn export https://github.com/linkease/istore/trunk/luci/luci-lib-xterm package/luci-lib-xterm
-svn export https://github.com/linkease/istore/trunk/luci/luci-lib-taskd package/luci-lib-taskd
-svn export https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-svn export https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
+git clone --depth 1 --filter=blob:none --sparse https://github.com/linkease/istore.git;main package/cache
+pushd package/cache
+git sparse-checkout set luci/taskd \
+luci/luci-lib-xterm \
+luci/luci-lib-taskd \
+luci/luci-app-store \
+pushd luci
+mv -f */ ../../../../
+popd
+popd && rm -rf package/cache
+
+git clone --depth 1 --filter=blob:none --sparse https://github.com/linkease/istore-ui.git;main package/cache
+pushd package/cache
+git sparse-checkout set app-store-ui \
+mv -f */ ../../../../
+popd
+popd && rm -rf package/cache
