@@ -45,14 +45,14 @@ git sparse-checkout set luci-app-adguardhome \
 luci-app-smartdns \
 luci-app-bypass \
 luci-app-poweroff \
-mv -f */ ../../../../
+mv -f */ ../
 popd
 popd && rm -rf package/cache
 # 添加OpenClash
 git clone --depth 1 --filter=blob:none -b master https://github.com/vernesong/OpenClash.git package/cache
 pushd package/cache
 git sparse-checkout set luci-app-openclash \
-mv -f */ ../../../
+mv -f */ ../
 popd
 popd && rm -rf package/cache
 # 添加istore
@@ -63,7 +63,7 @@ luci/luci-lib-xterm \
 luci/luci-lib-taskd \
 luci/luci-app-store \
 pushd luci
-mv -f */ ../../../../
+mv -f */ ../
 popd
 popd && rm -rf package/cache
 
