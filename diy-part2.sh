@@ -39,6 +39,7 @@ luci-app-control-webrestriction
 mv -f */ ../
 popd
 popd && rm -rf package/cache
+
 # 添加adguardhome，smartdns，bypass，poweroff
 git clone --depth 1 --filter=blob:none https://github.com/kenzok8/small-package.git package/cache
 pushd package/cache
@@ -49,13 +50,15 @@ luci-app-poweroff
 mv -f */ ../
 popd
 popd && rm -rf package/cache
+
 # 添加OpenClash
 git clone --depth 1 --filter=blob:none -b master https://github.com/vernesong/OpenClash.git package/cache
 pushd package/cache
-git sparse-checkout set luci-app-openclash \
+git sparse-checkout set luci-app-openclash
 mv -f */ ../
 popd
 popd && rm -rf package/cache
+
 # 添加istore
 git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore.git package/cache
 pushd package/cache
