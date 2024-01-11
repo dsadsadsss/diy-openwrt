@@ -30,10 +30,14 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxmin
 git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vssr
 # eqosplus定时限速
 git clone https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
-# 管控过滤
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-control-weburl package/luci-app-control-weburl
-# 访问限制
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
+# 管控过滤及访问限制
+git clone --depth 1 --filter=blob:none --sparse https://github.com/281677160/openwrt-package.git;Lede package/cache
+pushd package/cache
+git sparse-checkout set luci-app-control-weburl \
+luci-app-control-webrestriction \
+mv -f */ ../../../
+popd
+popd && rm -rf package/cache
 # 添加adguardhome
 svn export https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
 # 添加smartdns
