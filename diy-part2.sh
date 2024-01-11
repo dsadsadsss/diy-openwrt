@@ -38,14 +38,16 @@ luci-app-control-webrestriction \
 mv -f */ ../../../
 popd
 popd && rm -rf package/cache
-# 添加adguardhome
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-adguardhome package/luci-app-adguardhome
-# 添加smartdns
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/luci-app-smartdns
-# 添加bypass
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-bypass package/luci-app-bypass
-# 添加poweroff
-svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff package/luci-app-poweroff
+# 添加adguardhome，smartdns，bypass，poweroff
+git clone --depth 1 --filter=blob:none --sparse https://github.com/kenzok8/small-package.git package/cache
+pushd package/cache
+git sparse-checkout set luci-app-adguardhome \
+luci-app-smartdns \
+luci-app-bypass \
+luci-app-poweroff \
+mv -f */ ../../../
+popd
+popd && rm -rf package/cache
 # 添加OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 # 添加istore
