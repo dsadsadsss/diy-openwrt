@@ -30,11 +30,12 @@ git clone https://github.com/jerrykuku/lua-maxminddb.git package/lean/lua-maxmin
 git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vssr
 # eqosplus定时限速
 git clone https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
+
 # 管控过滤及访问限制
 git clone --depth 1 --filter=blob:none -b Lede https://github.com/281677160/openwrt-package.git package/cache
 pushd package/cache
 git sparse-checkout set luci-app-control-weburl \
-luci-app-control-webrestriction \
+luci-app-control-webrestriction
 mv -f */ ../
 popd
 popd && rm -rf package/cache
