@@ -65,7 +65,7 @@ luci/luci-lib-xterm \
 luci/luci-lib-taskd \
 luci/luci-app-store
 pushd luci
-mv -f */ ../
+mv -f */ ../../
 popd && rm -rf package/cache
 
 git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore-ui.git package/cache
