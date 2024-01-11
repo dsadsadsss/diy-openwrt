@@ -45,7 +45,7 @@ git sparse-checkout set luci-app-adguardhome \
 luci-app-smartdns \
 luci-app-bypass \
 luci-app-poweroff \
-mv -f */ ../../../
+mv -f */ ../../../../
 popd
 popd && rm -rf package/cache
 # 添加OpenClash
