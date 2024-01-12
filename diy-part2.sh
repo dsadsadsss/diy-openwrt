@@ -31,46 +31,25 @@ git clone https://github.com/free-diy/luci-app-vssr.git package/lean/luci-app-vs
 # eqosplus定时限速
 git clone https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
 
-# 管控过滤及访问限制
-git clone --depth 1 --filter=blob:none -b Lede https://github.com/281677160/openwrt-package.git package/cache
-pushd package/cache
-git sparse-checkout set luci-app-control-weburl \
-luci-app-control-webrestriction
-mv -f */ ../
-popd
-popd && rm -rf package/cache
-
-# 添加adguardhome，smartdns，bypass，poweroff
-git clone --depth 1 --filter=blob:none https://github.com/kenzok8/small-package.git package/cache
-pushd package/cache
-git sparse-checkout set luci-app-adguardhome \
-luci-app-smartdns \
-luci-app-bypass \
-luci-app-poweroff
-mv -f */ ../
-popd && rm -rf package/cache
-
-# 添加OpenClash
-git clone --depth 1 --filter=blob:none -b master https://github.com/vernesong/OpenClash.git package/cache
-pushd package/cache
-git sparse-checkout set luci-app-openclash
-mv -f */ ../
-popd && rm -rf package/cache
-
-# 添加istore
-git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore.git package/cache
-pushd package/cache
-git sparse-checkout set luci/taskd \
-luci/luci-lib-xterm \
-luci/luci-lib-taskd \
-luci/luci-app-store
-pushd luci
-mv -f */ ../../
-popd && popd && rm -rf package/cache
-
-git clone --depth 1 --filter=blob:none -b main https://github.com/linkease/istore-ui.git package/cache
-pushd package/cache
-git sparse-checkout set app-store-ui
-mv -f */ ../
-popd && rm -rf package/cache
-
+#####
+function merge_package(){
+    repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
+    pkg=`echo $2 | rev | cut -d'/' -f 1 | rev`
+    # find package/ -follow -name $pkg -not -path "package/custom/*" | xargs -rt rm -rf
+    git clone --depth=1 --single-branch $1
+    mv $2 package/
+    rm -rf $repo
+}
+# 添加管控过滤,访问限制,adguardhome,smartdns,bypass,poweroff,istore,OpenClash
+merge_package https://github.com/281677160/openwrt-package.git openwrt-package/luci-app-control-webrestriction
+merge_package https://github.com/281677160/openwrt-package.git openwrt-package/luci-app-control-weburl
+merge_package https://github.com/kenzok8/small-package.git small-package/luci-app-adguardhome
+merge_package https://github.com/kenzok8/small-package.git small-package/luci-app-smartdns
+merge_package https://github.com/kenzok8/small-package.git small-package/luci-app-bypass
+merge_package https://github.com/kenzok8/small-package.git small-package/luci-app-poweroff
+merge_package https://github.com/vernesong/OpenClash.git OpenClash/luci-app-openclash
+merge_package https://github.com/linkease/istore.git istore/luci/taskd
+merge_package https://github.com/linkease/istore.git istore/luci/luci-lib-xterm
+merge_package https://github.com/linkease/istore.git istore/luci/luci-lib-taskd
+merge_package https://github.com/linkease/istore.git istore/luci/luci-app-store
+merge_package https://github.com/linkease/istore-ui.git istore-ui/app-store-ui
