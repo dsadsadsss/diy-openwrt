@@ -33,16 +33,17 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-a
 
 #####
 function git_sparse_clone() {
-  branch="$1" rurl="$2" && shift 2
-  git clone --depth=1 -b $branch --single-branch $rurl
-  repo=$(echo $rurl | awk -F '/' '{print $(NF)}')
-  cd $repo && mv -f $@ ../package
-  cd .. && rm -rf $repo
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
 }
 # 参数1是分支名, 参数2是仓库地址, 参数3是子目录
 # 添加管控过滤,访问限制,adguardhome,smartdns,bypass,poweroff,istore,OpenClash
 git_sparse_clone Lede https://github.com/281677160/openwrt-package luci-app-control-weburl luci-app-control-webrestriction
 git_sparse_clone main https://github.com/kenzok8/small-package luci-app-adguardhome luci-app-smartdns luci-app-bypass luci-app-poweroff
 git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
-git_sparse_clone main https://github.com/linkease/istore luci/taskd luci/luci-lib-xterm luci/luci-lib-taskd luci/luci-app-store
 git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+git_sparse_clone main https://github.com/linkease/istore luci
