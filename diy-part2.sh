@@ -40,7 +40,7 @@ function git_sparse_clone() {
   mv -f $@ ../package
   cd .. && rm -rf $repodir
 }
-# 参数1是分支名, 参数2是仓库地址, 参数3是子目录
+# 参数1是分支名, 参数2是仓库地址, 参数3是子目录，同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开
 # 添加管控过滤,访问限制,adguardhome,smartdns,bypass,poweroff,istore,OpenClash
 git_sparse_clone Lede https://github.com/281677160/openwrt-package luci-app-control-weburl luci-app-control-webrestriction
 git_sparse_clone main https://github.com/kenzok8/small-package luci-app-adguardhome luci-app-smartdns luci-app-bypass luci-app-poweroff
