@@ -16,7 +16,7 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-autotimeset package/luc
 # 拉取argon主题
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 # 拉取sirpdboy主题
-git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
+#git clone --depth=1 https://github.com/sirpdboy/luci-theme-opentopd package/luci-theme-opentopd
 # 拉取中文版netdata
 git clone --depth=1 -b master https://github.com/sirpdboy/luci-app-netdata package/luci-app-netdata
 # 添加系统高级设置
@@ -26,8 +26,8 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddns-go
 # 添加应用管理
 #git clone --depth=1 -b master https://github.com/destan19/OpenAppFilter package/OpenAppFilter
 # 添加vssr
-git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lean/lua-maxminddb
-git clone --depth=1 https://github.com/free-diy/luci-app-vssr package/lean/luci-app-vssr
+#git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lean/lua-maxminddb
+#git clone --depth=1 https://github.com/free-diy/luci-app-vssr package/lean/luci-app-vssr
 # eqosplus定时限速
 git clone --depth=1 https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 
@@ -41,9 +41,9 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 # 参数1是分支名, 参数2是仓库地址, 参数3是子目录，同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开
-# 添加管控过滤,访问限制,adguardhome,smartdns,bypass,poweroff,istore,OpenClash
+# 添加管控过滤,访问限制,adguardhome,smartdns,poweroff,istore,OpenClash
 git_sparse_clone Lede https://github.com/281677160/openwrt-package luci-app-control-weburl luci-app-control-webrestriction
-git_sparse_clone main https://github.com/kenzok8/small-package luci-app-adguardhome luci-app-smartdns luci-app-bypass luci-app-poweroff
+git_sparse_clone main https://github.com/kenzok8/small-package luci-app-adguardhome luci-app-smartdns luci-app-poweroff
 git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
 git_sparse_clone main https://github.com/linkease/istore luci
