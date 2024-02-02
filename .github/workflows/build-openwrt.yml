@@ -82,7 +82,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: 下载安装包
+    - name: 下载DL库
       id: package
       run: |
         cd openwrt
