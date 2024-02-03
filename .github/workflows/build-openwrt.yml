@@ -82,32 +82,62 @@ jobs:
         df -hT $PWD
         git clone --depth=1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
+        COMMIT_AUTHOR=$(git show -s --date=short --format="作者: %an")
+        echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
+        COMMIT_DATE=$(git show -s --date=short --format="时间: %ci")
+        echo "COMMIT_DATE=$COMMIT_DATE" >> $GITHUB_ENV
+        COMMIT_MESSAGE=$(git show -s --date=short --format="内容: %s")
+        echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+        COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
+        echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+
+    - name: Generate Variables
+      run: |
+        cp $CONFIG_FILE $OPENWRT_PATH/.config
+        cd $OPENWRT_PATH
+        make defconfig > /dev/null 2>&1
+        SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
+        echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
+        DEVICE_TARGET=$(cat .config | grep CONFIG_TARGET_BOARD | awk -F '"' '{print $2}')
+        echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_ENV
+        DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
+        echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
+
+    - name: Cache Toolchain
+      if: env.CACHE_TOOLCHAIN == 'true'
+      uses: HiGarfield/cachewrtbuild@main
+      with:
+        ccache: false
+        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
+        prefix: ${{ env.OPENWRT_PATH }}        
         
     - name: 加载自定义设置
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd openwrt
+        cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 下载插件
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd $OPENWRT_PATH && ./scripts/feeds update -a
 
     - name: 读取插件
-      run: cd openwrt && ./scripts/feeds install -a
+      run: cd $OPENWRT_PATH && ./scripts/feeds install -a
 
     - name: 更改设置
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
-        cd openwrt
+        cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: 下载DL库
       id: package
       run: |
-        cd openwrt
+        cd $OPENWRT_PATH
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
@@ -116,7 +146,7 @@ jobs:
     - name: 开始编译固件
       id: compile
       run: |
-        cd openwrt
+        cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
@@ -139,7 +169,7 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        cd openwrt/bin/targets/*/*
+        cd $OPENWRT_PATH/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
