@@ -47,7 +47,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
-
     - name: Check Server Performance
       run: |
         echo "警告⚠"
