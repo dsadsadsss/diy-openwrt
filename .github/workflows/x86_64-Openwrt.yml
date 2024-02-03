@@ -1,4 +1,4 @@
-name: Diy OpenWrt
+name: x86_64 OpenWrt
 
 on:
   workflow_dispatch:
