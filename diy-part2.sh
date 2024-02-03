@@ -45,7 +45,7 @@ git_sparse_clone Lede https://github.com/281677160/openwrt-package luci-app-cont
 git_sparse_clone main https://github.com/kenzok8/small-package luci-app-adguardhome luci-app-smartdns luci-app-poweroff
 # 添加ddns-go
 git clone --depth=1 https://github.com/sirpdboy/luci-app-ddns-go package/ddns-go
-添加istore
+# 添加istore
 git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
 git_sparse_clone main https://github.com/linkease/istore luci
 # 添加应用管理
