@@ -123,10 +123,10 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 下载插件
-      run: cd $OPENWRT_PATH && ./scripts/feeds update -a
-
-    - name: 读取插件
-      run: cd $OPENWRT_PATH && ./scripts/feeds install -a
+      run: |
+        cd $OPENWRT_PATH
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
     - name: 更改设置
       run: |
