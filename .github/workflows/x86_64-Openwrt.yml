@@ -116,7 +116,7 @@ jobs:
         
     - name: 加载自定义设置
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF $OPENWRT_PATH/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P1_SH
@@ -129,8 +129,8 @@ jobs:
 
     - name: 更改设置
       run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e files ] && mv files $OPENWRT_PATH/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
         chmod +x $DIY_P2_SH
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -164,7 +164,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/bin
+        path: $OPENWRT_PATH/bin
 
     - name: 整理编译好的固件
       id: organize
@@ -182,7 +182,7 @@ jobs:
     #    name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
     #    path: ${{ env.FIRMWARE }}
         name: OpenWrt_firmware
-        path: openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-combined-efi.img
+        path: $OPENWRT_PATH/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-combined-efi.img
 
     - name: 生成发布标签
       id: tag
