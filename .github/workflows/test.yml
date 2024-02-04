@@ -156,7 +156,7 @@ jobs:
         path: ${{ env.OPENWRT_PATH }}/bin
 
     - name: Organize files
-      if: steps.generate.outputs.status == 'success'
+      if: steps.compile.outputs.status == 'success'
       run: |
         cd $OPENWRT_ROOT_PATH/bin/targets/*/*
         cat sha256sums
